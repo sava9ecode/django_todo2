@@ -8,6 +8,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Login">
+    <input type="button" value="Login with GitHub" onclick="location.href='{% url "social:begin" "github" %}'">
     <input type="button" value="Reset password" onclick="location.href='{% url "password_reset" %}'">
     <input type="button" value="Register" onclick="location.href='{% url "register" %}'">
 </form>

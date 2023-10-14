@@ -20,5 +20,6 @@ urlpatterns = [
         name="item-delete",
     ),
     path("accounts/", include("django.contrib.auth.urls")),
+    path("oauth/", include("social_django.urls")),
     path("register/", views.register, name="register"),
 ]
