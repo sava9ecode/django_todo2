@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from . import views
 
@@ -19,4 +19,5 @@ urlpatterns = [
         views.ItemDelete.as_view(),
         name="item-delete",
     ),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
