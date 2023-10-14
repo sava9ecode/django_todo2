@@ -1,8 +1,11 @@
+from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import login
 
 from .models import ToDoList, ToDoItem
+from .forms import CustomUserCreationForm
 
 
 class ListListView(ListView):
@@ -95,3 +98,20 @@ class ItemDelete(LoginRequiredMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context["todo_list"] = self.object.todo_list
         return context
+
+
+def register(request):
+    if request.method == "GET":
+        return render(
+            request,
+            "todo_app/register.html",
+            {
+                "form": CustomUserCreationForm(),
+            },
+        )
+    elif request.method == "POST":
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect(reverse("index"))
