@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
@@ -39,6 +40,7 @@ class ItemCreate(CreateView):
         "title",
         "description",
         "due_date",
+        "is_completed",
     ]
 
     def get_initial(self):
@@ -65,6 +67,7 @@ class ItemUpdate(UpdateView):
         "title",
         "description",
         "due_date",
+        "is_completed",
     ]
 
     def get_context_data(self):
