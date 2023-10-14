@@ -6,10 +6,14 @@ The Todo-App can be used for multiple purposes such as shopping lists, taking no
 # Quick start
 
 To start this app follow the instructions below:
-Don't forget to clone the repo and activate venv.
+1. Clone the repo.
+2. Activate venv.
+3. Create file .env and fill it out like .env.template
+4. Run commands:
 ```
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
-Add some tasks with the admin panel, enjoy the app.
+5. Register your account or log in with GitHub.
+6. Add some tasks with the UI, enjoy the app.
